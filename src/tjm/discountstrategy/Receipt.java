@@ -10,5 +10,18 @@ package tjm.discountstrategy;
  * @author Tim
  */
 public class Receipt {
-    private DatabaseStrategy 
+    private DatabaseStrategy db;
+    
+    public Receipt (DatabaseStrategy db){
+        // requires validation
+        
+    }
+    
+    public final DatabaseStrategy getDb(){
+        return db;
+    }
+    
+    public final void setDb(DatabaseStrategy db){
+        this.db = db;
+    }
 }
