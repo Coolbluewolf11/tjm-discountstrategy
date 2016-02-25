@@ -11,5 +11,35 @@ package tjm.discountstrategy;
  * @author Tim
  */
 public class Customer {
+    private String customerId;
+    private String customerName;
+
+    public Customer(String customerId, String customerName) {
+        //change to setCustomerId. YOou do this because it doesn't have 
+        //validation and the setter methods already do.
+       setCustomerId(customerId);
+       //method says it's overrideable. This means we have to mark them as final
+        setCustomerName(customerName);
+    }
+    
+
+    public String getCustomerId() {
+        return customerId;
+    }
+
+    public final void setCustomerId(String CustomerId) {
+        //needs validation
+        this.customerId = CustomerId;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public final void setCustomerName(String CustomerName) {
+        //needs validation
+        this.customerName = CustomerName;
+    }
+    
     
 }
