@@ -22,8 +22,6 @@ public class Product {
       setUnitCost(unitCost);
       setDiscount(discount);
     }
-    
-    
 
     public final String getProductId() {
         return productId;

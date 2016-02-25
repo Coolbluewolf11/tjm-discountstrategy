@@ -10,5 +10,6 @@ package tjm.discountstrategy;
  * @author Tim
  */
 public interface DatabaseStrategy {
-    
+    public abstract Product findProductById(String prodID);
+    public abstract Customer findCustById(String custID);
 }
