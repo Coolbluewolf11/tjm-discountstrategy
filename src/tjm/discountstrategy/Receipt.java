@@ -29,7 +29,7 @@ public class Receipt {
     }
     
     public final void addItemToSale(String prodId, int qty){
-        
+        LineItem[] tempArray = new LineItem[LineItems.length +1];
     }
     
     public final double getTotalPrice(){
