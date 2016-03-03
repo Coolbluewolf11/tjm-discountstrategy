@@ -11,34 +11,34 @@ package tjm.discountstrategy;
  * @author Tim
  */
 public class Product {
-    private String productId;
-    private String productName;
+    private String prodId;
+    private String prodName;
     private double unitCost;
     private DiscountStrategy discount;
 
-    public Product(String productId, String productName, double unitCost, DiscountStrategy discount) {
-      setProductId(productId);
-      setProductName(productName);
-      setUnitCost(unitCost);
-      setDiscount(discount);
+    public Product(String prodId, String prodName, double unitCost, DiscountStrategy discount) {
+        setProdId(prodId);
+        setProdName(prodName);
+        setUnitCost(unitCost);
+        setDiscount(discount);
     }
 
-    public final String getProductId() {
-        return productId;
+    public final String getProdId() {
+        return prodId;
     }
 
-    public final void setProductId(String productId) {
-        //needs validation
-        this.productId = productId;
+    public final void setProdId(String prodId) {
+        // needs validation
+        this.prodId = prodId;
     }
 
-    public final String getProductName() {
-        return productName;
+    public final String getProdName() {
+        return prodName;
     }
 
-    public final void setProductName(String productName) {
-        //needs validation
-        this.productName = productName;
+    public final void setProdName(String prodName) {
+        // needs validation
+        this.prodName = prodName;
     }
 
     public final double getUnitCost() {
@@ -46,7 +46,7 @@ public class Product {
     }
 
     public final void setUnitCost(double unitCost) {
-        //needs validation
+        // needs validation
         this.unitCost = unitCost;
     }
 
@@ -55,7 +55,7 @@ public class Product {
     }
 
     public final void setDiscount(DiscountStrategy discount) {
-        //needs validation
+        // needs validation
         this.discount = discount;
     }
 }

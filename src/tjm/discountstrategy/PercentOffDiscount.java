@@ -16,15 +16,20 @@ public class PercentOffDiscount implements DiscountStrategy{
         setDiscountRate(discountRate);
     }
     
-    public double CalculateDiscountAmt(int qty, double unitCost) {
+     @Override
+    public final double getDiscountAmt(int qty, double unitCost) {
+        //  needs validation
         return unitCost * qty * discountRate;
     }
-    
-    public final double getDiscountRate(){
+
+    public final double getDiscountRate() {
         return discountRate;
     }
-    
-    public final void setDiscountRate(double discountRate){
+
+    public final void setDiscountRate(double discountRate) {
+        // needs validation
         this.discountRate = discountRate;
     }
+    
 }
+

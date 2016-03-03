@@ -11,26 +11,25 @@ package tjm.discountstrategy;
  */
 public class NoDiscount implements DiscountStrategy {
     private double discountRate;
-    private final int NO_DISCOUNT = 0;
-
+    private final int NO_DISCOUNT = 0; 
+    
     public NoDiscount() {
+        
+    }
+    
+    @Override
+    public final double getDiscountAmt(int qty, double unitCost) {
+        //  needs validation
+        return NO_DISCOUNT;
     }
 
     public final double getDiscountRate() {
         return discountRate;
     }
-   
 
     public final void setDiscountRate(double discountRate) {
-        //needs validation
+        // needs validation
         this.discountRate = discountRate;
     }
-
-    @Override
-    public double CalculateDiscountAmt(int qty, double unitCost) {
-        //needs validation
-        return NO_DISCOUNT;
-    }
-    
     
 }

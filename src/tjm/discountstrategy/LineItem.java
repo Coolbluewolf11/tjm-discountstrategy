@@ -13,32 +13,45 @@ public class LineItem {
     private Product product;
     private int qty;
     
-    public LineItem(String prodId, int qty, DatabaseStrategy db){
-        this.qty = qty;
+    public LineItem(String prodId, int qty, DatabaseStrategy db) {
+        setQty(qty);
         setProduct(db.findProductById(prodId));
     }
-    
-    public Product getProduct(){
+
+    /**
+     * Gets the extended price (subtotal) for this line item.
+     *
+     * @return the quantity * unit cost
+     */
+    public final double getExtPrice() {
+        return qty * product.getUnitCost();
+    }
+
+    /**
+     * Gets the discounted total for this line item
+     *
+     * @return discounted total for this line item
+     */
+    public final double getDiscountedTotal() {
+        return product.getDiscount().getDiscountAmt(qty, product.getUnitCost());
+    }
+
+    public final Product getProduct() {
         return product;
     }
-    
-    public void setProduct(Product product){
+
+    public final void setProduct(Product product) {
+        // needs validaiton
         this.product = product;
     }
-    
-    public int getQty(){
+
+    public final int getQty() {
         return qty;
     }
-    
-    public void setQty(int qty){
+
+    public final void setQty(int qty) {
+        // needs validaiton
         this.qty = qty;
     }
-    public double getSubTotal(){
-        double total = product.getUnitCost() * qty;
-        return total;
-    }
-    public double getDiscountedTotal(){
-        double total = product.getDiscount().CalculateDiscountAmt(qty, product.getUnitCost());
-        return total;
-    }
+
 }

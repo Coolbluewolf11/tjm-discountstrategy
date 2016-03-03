@@ -15,10 +15,23 @@ public class TJMDiscountStrategy {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        // KLUDGE: do configuration here
+        /////////////////////////////////////////////////////////////////
+        // KLUDGE: do configuration here for strategy options:
+        /////////////////////////////////////////////////////////////////
         
-        //Start talking to objects
+        DatabaseStrategy db = new FakeDatabase();
+        ReceiptFormatStrategy fmt = new VerboseReceiptFormat();
+        OutputStrategy[] outputs = {
+            new ConsoleOutput(),
+            new GuiOutput()
+        };       
+        Register register = new Register("Kohls Department Store");
+        register.startNewSale("100", db, fmt, outputs);
+        
+        register.addItemToSale("11", 2);
+        register.addItemToSale("22", 1);
+        register.addItemToSale("33", 3);        
+        register.endSale();   
     }
     
 }

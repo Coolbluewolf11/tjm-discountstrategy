@@ -1,14 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package tjm.discountstrategy;
 
 /**
- *
- * @author Tim
+ * The general contract for all discount strategy implementations.
+ * @author jlombardo@wctc.edu
  */
 public interface DiscountStrategy {
-    public abstract double CalculateDiscountAmt(int qty, double unitCost);
+    public abstract double getDiscountAmt(int qty, double unitCost);
 }
