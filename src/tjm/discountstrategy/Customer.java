@@ -10,6 +10,7 @@ package tjm.discountstrategy;
  *
  * @author Tim
  */
+import java.lang.IllegalArgumentException;
 public class Customer {
     private String customerId;
     private String customerName;
@@ -27,8 +28,10 @@ public class Customer {
         return customerId;
     }
 
-    public final void setCustomerId(String CustomerId) {
-        //needs validation
+    public final void setCustomerId(String CustomerId) throws IllegalArgumentException{
+        if(CustomerId == null|| CustomerId.isEmpty()){
+            throw new IllegalArgumentException("");
+        }
         this.customerId = CustomerId;
     }
 

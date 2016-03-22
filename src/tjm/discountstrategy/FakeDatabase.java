@@ -5,7 +5,7 @@ package tjm.discountstrategy;
  * access by using arrays of hard-code products and customers. There 
  * currently is no way of modifying these.
  * 
- * @author jlombardo@wctc.edu
+ * @author Tim
  */
 public class FakeDatabase implements DatabaseStrategy {
     private Customer[] customers = {
@@ -29,7 +29,9 @@ public class FakeDatabase implements DatabaseStrategy {
     public final Product findProductById(String prodId) {
         // needs validation
         Product product = null;
-        
+        if(prodId == null || prodId.isEmpty()){
+            throw new IllegalArgumentException("The Product ID cannot be null or empty");
+        }
         for(Product p : products) {
             if(p.getProdId().equals(prodId)) {
                 product = p;
