@@ -30,13 +30,16 @@ public class FakeDatabase implements DatabaseStrategy {
         // needs validation
         Product product = null;
         if(prodId == null || prodId.isEmpty()){
-            throw new IllegalArgumentException("The Product ID cannot be null or empty");
+            throw new IllegalArgumentException("The Product ID cannot be null or empty.");
         }
         for(Product p : products) {
             if(p.getProdId().equals(prodId)) {
                 product = p;
                 break;
             }
+        }
+        if(product == null){
+            throw new IllegalArgumentException("The Product ID you entered doesn't exist in the database.");
         }
         return product;
     }
@@ -50,12 +53,17 @@ public class FakeDatabase implements DatabaseStrategy {
     public final Customer findCustomerById(String custId) {
         // needs validation
         Customer customer = null;
-        
+        if(custId == null||custId.isEmpty()){
+            throw new IllegalArgumentException("The customer ID cannot be null or empty.");
+        }
         for(Customer c : customers) {
             if(c.getCustomerId().equals(custId)) {
                 customer = c;
                 break;
             }
+        }
+        if(customer == null){
+            throw new IllegalArgumentException("The Customer ID you entered doesn't exist in the database.");
         }
         return customer;
     }

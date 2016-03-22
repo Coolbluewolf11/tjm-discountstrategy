@@ -3,7 +3,7 @@ package tjm.discountstrategy;
 /**
  * An implementation of the DiscountStrategy contract representing a flat
  * dollar amount off the regular price.
- * @author jlombardo@wctc.edu
+ * @author Tim
  */
 public class FlatAmtDiscount implements DiscountStrategy {
     private double discountRate;
@@ -23,7 +23,10 @@ public class FlatAmtDiscount implements DiscountStrategy {
     @Override
     public final double getDiscountAmt(int qty, double unitCost) {
         //  needs validation
-        return discountRate;
+        if(qty == 0){
+            throw new IllegalArgumentException("The quantity must be greater than 0");
+        }
+        return discountRate*qty;
     }
 
     public final double getDiscountRate() {
